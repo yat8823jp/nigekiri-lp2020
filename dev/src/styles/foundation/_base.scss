@@ -1,0 +1,44 @@
+// mixin
+@mixin breakpoint( $point ) {
+    @if $point == tablet {
+        @media ( min-width: 641px ) {
+            @content ;
+        }
+    }
+    @if $point == pc {
+        @media ( min-width: 769px ) {
+            @content ;
+        }
+    }
+    @if $point == wide {
+        @media ( min-width: 961px ) {
+            @content ;
+        }
+    }
+}
+
+//font
+@mixin oswald( $weight: "400" ) {
+    font-family: 'Oswald', sans-serif;
+    font-weight: $weight;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+html {
+    height         : 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width  : 350px;
+    width      : 100%;
+    font-family: 'Noto Sans JP', Arial;
+    overflow-x : hidden;
+    position   : relative;
+    background : #FAE9BD;
+    color      : #1d1d1d;
+}
+

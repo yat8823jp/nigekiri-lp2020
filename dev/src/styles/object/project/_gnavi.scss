@@ -1,0 +1,91 @@
+.p-gnavi {
+    @include breakpoint( pc ) {
+        // width: auto;
+        // height: 100%;
+        // margin: auto 40px auto;
+        // background-color: inherit;
+        // display: flex;
+        // align-items: center;
+    }
+    > .list {
+        transition: all 300ms 0s ease;
+        left: 100%;
+        width           : 100vw;
+        height          : 100vh;
+        padding         : 70px 50px;
+        position        : absolute;
+        top             : 60px;
+        background-color: rgba( 217, 199, 151, .95 );
+        // display         : flex;
+        @include oswald;
+        display: none;
+        flex-direction  : column;
+        align-items     : center;
+        z-index         : 100;
+        overflow-y      : auto;
+        @include breakpoint( pc ) {
+            width         : inherit;
+            height        : inherit;
+            padding       : inherit;
+            position      : static;
+            background    : inherit;
+            display: flex;
+            flex-direction: inherit;
+            transition: inherit;
+            align-items   : center;
+            line-height: 2.0;
+        }
+        > li {
+            width: 100px;
+            margin: 0 auto 50px;
+            font-size: 1.8rem;
+            @include breakpoint( pc ) {
+                width: auto;
+                margin: inherit;
+                margin-bottom: 50px;
+                font-size   : 1.2rem;
+                text-align: left;
+            }
+            a {
+                &:link,&:visited {
+                    color: #1d1d1d;
+                }
+                &:hover, &:active {
+                    color: #555;
+                }
+                text-decoration: none;
+                @include breakpoint( pc ) {
+                    margin-right: 20px;
+                    font-weight: normal;
+                    white-space: nowrap;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+                a {
+                    @include breakpoint( pc ) {
+                        margin-right: 40px;
+                    }
+                }
+            }
+            @include breakpoint( pc ) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &.is-open {
+        > .list {
+            display: flex;
+            position: fixed;
+            left: 0;
+            @include breakpoint( pc ) {
+                position: static;
+            }
+        }
+        .c-arrow--top-l {
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
